@@ -3,6 +3,6 @@
 function f_os_post() {
     f_out "Finishing up Ubuntu Install"
 
-    sudo apt-get upgrade -y
-    sudo apt-get autoremove -y
+    sudo apt-get upgrade -y || true
+    sudo apt-get autoremove -y || true
 }
