@@ -1,7 +1,7 @@
 #!/bin/bash
 
 function f_get_common_components() {
-    _COMPONENTS=$(dialog --checklist "Which Common Components?" 400 400 36 \
+    _COMPONENTS=$(dialog --checklist "Which Common Components?" 400 400 37 \
        home_dirs "Common Home Dirs" on \
        vscode "VSCode" on \
        curl "curl" on \
@@ -37,6 +37,10 @@ function f_get_common_components() {
        snapd "Snapd" on \
        snap_apps "Snap Apps" on \
        rust_apps "Compile Rust Apps" on \
+       appimaged "AppImage Integration Daemon" on \
+       obsidian "Obsidian.md" off \
+       standardnotes "StandardNotes" on \
+       firefoxtabs "Hide Firefox Tabs" on \
         --output-fd 1)
     clear
 
