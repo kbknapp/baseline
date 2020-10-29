@@ -9,6 +9,14 @@ function f_flatpak_common() {
     flatpak remote-add --user --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
 }
 
+function f_zulip_main() {
+    f_check_prog "flatpak"
+
+    f_out "Installing Zulip"
+
+    $FLATPAK_INSTALL_CMD flathub com.zulip.Zulip
+}
+
 function f_git_kraken_main() {
     f_check_prog "flatpak"
 
@@ -84,7 +92,7 @@ function f_flatseal_main() {
 function f_flatpak_apps_main() {
     local _FP_APPS
 
-    _FP_APPS=$(dialog --checklist "Which Flatpak Apps?" 400 400 8 \
+    _FP_APPS=$(dialog --checklist "Which Flatpak Apps?" 400 400 10 \
        git_kraken "GitKraken" on \
        discord "Discord" on \
        dropbox "Dropbox" off \
@@ -94,6 +102,7 @@ function f_flatpak_apps_main() {
        telegram "Telegram" on \
        riot "Riot" off \
        flatseal "Flatseal" on \
+       zulip "Zulip" on \
         --output-fd 1)
     clear
 
