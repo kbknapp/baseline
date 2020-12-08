@@ -9,6 +9,30 @@ function f_flatpak_common() {
     flatpak remote-add --user --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
 }
 
+function f_obsidian_main() {
+    f_check_prog "flatpak"
+
+    f_out "Installing Obsidian"
+
+    $FLATPAK_INSTALL_CMD flathub md.obsidian.Obsidian
+}
+
+function f_clion_main() {
+    f_check_prog "flatpak"
+
+    f_out "Installing CLion"
+
+    $FLATPAK_INSTALL_CMD flathub com.jetbrains.CLion
+}
+
+function f_obs_main() {
+    f_check_prog "flatpak"
+
+    f_out "Installing OBS Studio"
+
+    $FLATPAK_INSTALL_CMD flathub com.obsproject.Studio
+}
+
 function f_zulip_main() {
     f_check_prog "flatpak"
 
@@ -92,17 +116,20 @@ function f_flatseal_main() {
 function f_flatpak_apps_main() {
     local _FP_APPS
 
-    _FP_APPS=$(dialog --checklist "Which Flatpak Apps?" 400 400 10 \
-       git_kraken "GitKraken" on \
+    _FP_APPS=$(dialog --checklist "Which Flatpak Apps?" 400 400 12 \
+       flatseal "Flatseal" on \
        discord "Discord" on \
-       dropbox "Dropbox" off \
-       slack "Slack" off \
-       code "Visual Studio Code" off \
        signal "Signal" on \
        telegram "Telegram" on \
-       riot "Riot" off \
-       flatseal "Flatseal" on \
+       whatsappqt "WhatsAppQT" on \
        zulip "Zulip" on \
+       slack "Slack" off \
+       git_kraken "GitKraken" on \
+       code "Visual Studio Code" off \
+       clion "CLion" on \
+       obsidian "Obsidian" on \
+       obs "OBS Studio" on \
+       dropbox "Dropbox" off \
         --output-fd 1)
     clear
 
