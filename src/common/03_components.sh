@@ -40,7 +40,6 @@ function f_get_common_components() {
        appimaged "AppImage Integration Daemon" on \
        obsidian "Obsidian.md" off \
        standardnotes "StandardNotes" on \
-       #firefoxtabs "Hide Firefox Tabs" on \
         --output-fd 1)
     clear
 
