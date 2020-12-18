@@ -11,7 +11,7 @@ function f_picom_main() {
     git clone --recursive https://github.com/yshui/picom || true
     cd ~/.build/picom/
     git submodule update --init --recursive
-    meson --buildtype=release . build
+    meson --optimization 3 --buildtype=release . build
     ninja -C build
     sudo ninja -C build install
 }
