@@ -78,6 +78,7 @@ function f_rust_apps_common() {
 	  "ripgrep"  "modern grep" on \
 	  "cw"       "wc clone" on \
 	  "bat"      "pretty cat" on \
+	  "kmon"     "Kernel Modules" on \
 	  "lsd"      "fancy ls" on \
 	  "diffr"    "diff clone" on \
 	  "sd"       "sed clone" on \
@@ -105,6 +106,7 @@ function f_rust_apps_common() {
 	  "skim"           "fzf clone" on \
 	  "mdbook"         "write books in MD" on \
 	  "toast"          "Build using Docker" on \
+	  "websocket"      "Build websockets" on \
 	  "starship"       "shell prompt" off \
 	  "mdcat"          "cat for markdown" on \
 	  "topgrade"       "upgrade everything" on \
