@@ -29,7 +29,7 @@ function f_get_common_components() {
        misc_small "Misc Small Tools" on \
        nvidia "Nvidia" off \
        amdgpu "AMD GPU" off \
-       alacritty "Alacritty" on \
+       alacritty "Alacritty" off \
        docker "Docker" on \
        rtv "Reddit Terminal Viewer" on \
        flatpak "Flatpak" on \
