@@ -123,7 +123,6 @@ function f_rust_apps_common() {
 	  "genact"         "activity generator" off \
 	  "grex"           "regex builder" on \
 	  "bandwhich"      "bandwidth monitor" on \
-	  "ffsend" 	       "firefox send from cli" on \
 	  "pastel"         "Get color info in your terminal" on \
 	  "miniserve"      "Mini HTTP server" on \
 	  "wasm-pack"      "" on \
