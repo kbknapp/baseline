@@ -156,7 +156,7 @@ function f_rust_apps_common() {
     # If sccache was installed we need to set the env vars
     # so that all the other cargo-installed and built packages
     # take advantage of it
-    if [[ " ${_RUST_WRAPPERS[@]} " =~ " sccache " ]]; then
+    if [[ " ${_RUST_WRAPPERS[*]} " =~ " sccache " ]]; then
       export RUSTC_WRAPPER=sccache
     fi
     cargo install $_CARGO_PLUGINS || true
