@@ -14,6 +14,14 @@ function f_git_common() {
 	autosquash = true
 [commit]
 	gpgsign = true
+[pull]
+	rebase = true
+[core]
+	excludesfile = /home/kevin/.gitignore
 EOF
-    
+
+    cat <<EOF > ~/.gitignore
+**/*.vi
+**/.idea/
+EOF
 }
