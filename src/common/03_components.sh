@@ -15,7 +15,7 @@ function f_get_common_components() {
        fonts "Fonts" on \
        zsh "ZSH" on \
        wireguard "Wireguard" on \
-       pip3 "Python3 pip" on \
+       python_components "Python Components" on \
        vlc "VLC" on \
        nmap "Nmap" on \
        shellcheck "ShellCheck" on \
