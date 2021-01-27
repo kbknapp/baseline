@@ -30,6 +30,7 @@ function f_get_common_components() {
        nvidia "Nvidia" off \
        amdgpu "AMD GPU" off \
        alacritty "Alacritty" off \
+       kitty "KiTTY" on \
        docker "Docker" on \
        rtv "Reddit Terminal Viewer" on \
        flatpak "Flatpak" on \
