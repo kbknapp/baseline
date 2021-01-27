@@ -33,6 +33,7 @@ function f_flatpak_apps_main() {
        im.riot.Riot "Element" on \
        io.github.arunsivaramanneo.GPUViewer "GPU Viewer" off \
        org.gnome.Fractal "Fractal" off \
+       net.xmind.ZEN "XMind" on \
         --output-fd 1)
     clear
 
