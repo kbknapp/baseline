@@ -9,133 +9,34 @@ function f_flatpak_common() {
     flatpak remote-add --user --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
 }
 
-function f_obsidian_main() {
-    f_check_prog "flatpak"
-
-    f_out "Installing Obsidian"
-
-    $FLATPAK_INSTALL_CMD flathub md.obsidian.Obsidian
-}
-
-function f_clion_main() {
-    f_check_prog "flatpak"
-
-    f_out "Installing CLion"
-
-    $FLATPAK_INSTALL_CMD flathub com.jetbrains.CLion
-}
-
-function f_obs_main() {
-    f_check_prog "flatpak"
-
-    f_out "Installing OBS Studio"
-
-    $FLATPAK_INSTALL_CMD flathub com.obsproject.Studio
-}
-
-function f_zulip_main() {
-    f_check_prog "flatpak"
-
-    f_out "Installing Zulip"
-
-    $FLATPAK_INSTALL_CMD flathub com.zulip.Zulip
-}
-
-function f_git_kraken_main() {
-    f_check_prog "flatpak"
-
-    f_out "Installing GitKraken"
-
-    $FLATPAK_INSTALL_CMD flathub com.axosoft.GitKraken
-}
-
-function f_discord_main() {
-    f_check_prog "flatpak"
-
-    f_out "Installing Discord"
-
-    $FLATPAK_INSTALL_CMD flathub com.discordapp.Discord
-}
-
-function f_dropbox_main() {
-    f_check_prog "flatpak"
-
-    f_out "Installing Dropbox"
-
-    $FLATPAK_INSTALL_CMD flathub com.dropbox.Client
-}
-
-function f_slack_main() {
-    f_check_prog "flatpak"
-
-    f_out "Installing Slack"
-
-    $FLATPAK_INSTALL_CMD flathub com.slack.Slack
-}
-
-function f_code_main() {
-    f_check_prog "flatpak"
-
-    f_out "Installing Visual Studio Code"
-
-    $FLATPAK_INSTALL_CMD flathub com.visualstudio.code.oss
-}
-
-function f_signal_main() {
-    f_check_prog "flatpak"
-
-    f_out "Installing Signal"
-
-    $FLATPAK_INSTALL_CMD flathub org.signal.Signal
-}
-
-function f_telegram_main() {
-    f_check_prog "flatpak"
-
-    f_out "Installing Telegram"
-
-    $FLATPAK_INSTALL_CMD flathub org.telegram.desktop
-}
-
-function f_riot_main() {
-    f_check_prog "flatpak"
-
-    f_out "Installing Riot"
-
-    $FLATPAK_INSTALL_CMD flathub im.riot.Riot
-}
-
-function f_flatseal_main() {
-    f_check_prog "flatpak"
-
-    f_out "Installing Flatseal"
-
-   $FLATPAK_INSTALL_CMD flathub com.github.tchx84.Flatseal
-}
-
 function f_flatpak_apps_main() {
+    f_check_prog "flatpak"
+
     local _FP_APPS
 
-    _FP_APPS=$(dialog --checklist "Which Flatpak Apps?" 400 400 12 \
-       flatseal "Flatseal" on \
-       discord "Discord" on \
-       signal "Signal" on \
-       telegram "Telegram" on \
-       whatsappqt "WhatsAppQT" on \
-       zulip "Zulip" on \
-       slack "Slack" off \
-       git_kraken "GitKraken" on \
-       code "Visual Studio Code" off \
-       clion "CLion" on \
-       obsidian "Obsidian" on \
-       obs "OBS Studio" on \
+    _FP_APPS=$(dialog --checklist "Which Flatpak Apps?" 400 400 20 \
+       com.github.tchx84.Flatseal "Flatseal" on \
+       com.discordapp.Discord "Discord" on \
+       org.signal.Signal "Signal" on \
+       org.telegram.desktop "Telegram" on \
+       io.bit3.WhatsAppQT "WhatsAppQT" on \
+       org.zulip.Zulip "Zulip" on \
+       com.slack.Slack "Slack" off \
+       com.axosoft.GitKraken "GitKraken" on \
+       com.visualstudio.code "Visual Studio Code" off \
+       com.jetbrains.CLion "CLion" off \
+       md.obsidian.Obsidian "Obsidian" on \
+       com.obsproject.Studio "OBS Studio" off \
        dropbox "Dropbox" off \
+       com.github.alainm23.planner "Planner" off \
+       com.todoist.Todoist "Todoist" on \
+       im.riot.Riot "Element" on \
+       io.github.arunsivaramanneo.GPUViewer "GPU Viewer" off \
+       org.gnome.Fractal "Fractal" off \
         --output-fd 1)
     clear
 
-    readonly _FP_APPS
-
-    for APP in ${_FP_APPS[@]}; do
-        f_${APP}_main
+    for APP in "${_FP_APPS[@]}"; do
+        $FLATPAK_INSTALL_CMD flathub $APP
     done
 }
