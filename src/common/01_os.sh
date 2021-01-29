@@ -2,7 +2,7 @@
 
 function f_validate_os() {
     case "${_OS}" in
-        fedora|opensuse|regolith|manjaro|ubuntu)
+        fedora|arch|opensuse|regolith|manjaro|ubuntu)
             return 0
             ;;
         *)
@@ -15,6 +15,7 @@ function f_get_os() {
         regolith Regolith on \
         fedora Fedora off \
         manjaro Manjaro off \
+        arch Arch off \
         opensuse OpenSUSE off \
         ubuntu Ubuntu off \
         --output-fd 1)

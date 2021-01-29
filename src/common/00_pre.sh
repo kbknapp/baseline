@@ -24,18 +24,10 @@ function f_check_bash() {
 
 function f_check_prog() {
     local prog
-    local should_exit
     prog=$1
-    should_exit=true
-    if [ ! -z $2 ]; then
-	    should_exit=$2
-    fi
-
   if ! command -v "${prog}" >/dev/null; then
-    if $should_exit ; then
       f_err_out "this script requires the program '${prog}'"
       f_exit 1
-    fi
   fi
 }
 
@@ -65,7 +57,7 @@ function f_verb_out() {
   local IDENT
   local MSG
   MSG=$1
-  IDENT=$2
+  IDENT=${2:-0}
   if [[ "$VERBOSE" == 1 ]]; then
     if [[ ! -z "$IDENT" ]]; then
       for _ in {0.."${IDENT}"}; do
@@ -81,7 +73,7 @@ function f_out() {
   local IDENT
   local MSG
   MSG=$1
-  IDENT=$2
+  IDENT=${2:-0}
   if [[ ! -z "$IDENT" ]]; then
     for _ in {0.."${IDENT}"}; do
       echo -n "${COLORS[GREEN]}${COLORS[BOLD]}-"
@@ -115,6 +107,5 @@ function f_pre_main() {
   f_check_root
   f_check_bash
   f_check_programs
-  #f_check_ubuntu
   f_set_script_run_user
 }

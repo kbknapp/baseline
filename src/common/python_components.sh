@@ -36,7 +36,7 @@ function f_python_components_common() {
         --output-fd 1)
     clear
 
-    for COM in "${_PY_CORE[@]}"; do
+    for COM in ${_PY_CORE[@]}; do
       if type f_${COM}_pre 2>/dev/null; then
           f_${COM}_pre
       fi
@@ -56,7 +56,7 @@ function f_python_components_common() {
         PIP_APP_CMD=pip3
     fi
 
-    for TOOL in "${_PY_PACKAGERS[@]}"; do
+    for TOOL in ${_PY_PACKAGERS[@]}; do
         case $TOOL in
             pipx)
                 $PIP_CMD install --user --upgrade $TOOL
@@ -70,7 +70,7 @@ function f_python_components_common() {
         PIP_APP_CMD=pipx
     fi
 
-    for TOOL in "${_PY_ENV[@]}"; do
+    for TOOL in ${_PY_ENV[@]}; do
         case "$TOOL" in
             virtualenvwrapper)
                 $PIP_CMD install --user --upgrade $TOOL
@@ -82,11 +82,11 @@ function f_python_components_common() {
         esac
     done
 
-    for TOOL in "${_PIP_PACKAGES[@]}"; do
+    for TOOL in ${_PIP_PACKAGES[@]}; do
         $PIP_APP_CMD install $TOOL
     done
 
-    for TOOL in "${_PY_DEV_TOOLS[@]}"; do
+    for TOOL in ${_PY_DEV_TOOLS[@]}; do
         $PIP_APP_CMD install $TOOL
     done
 }

@@ -32,6 +32,16 @@ function f_validate_de() {
                     ;;
             esac
             ;;
+        arch)
+            case "${_DE}" in
+                i3k)
+                    return 0
+                    ;;
+                *)
+                    return 1
+                    ;;
+            esac
+            ;;
         manjaro)
             case "${_DE}" in
                 i3k)
