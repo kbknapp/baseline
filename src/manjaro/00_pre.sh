@@ -11,7 +11,7 @@ function f_os_pre() {
 
     sudo pacman -Syyu --needed --noconfirm
 
-    for s in ./arch_common/*; do
+    for s in ../arch_common/*; do
         [[ -e $s ]] || break
         S_NAME=$(basename $s)
         source "$s"
