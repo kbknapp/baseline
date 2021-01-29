@@ -1,15 +1,15 @@
 #!/bin/bash
 
 # Exit on error
-set -e
+set -eu
 
-_VER="0.4.0"
+_VER="0.5.0"
 _NAME=$(basename "${0}")
 
 # CLI OPTIONS
-_VERBOSE=0
-_DEBUG=0
-_COLOR=1
+VERBOSE=0
+DEBUG=0
+COLOR=1
 SCRIPT_RUN_USER=
 DID_ERR=0
 INSTALL_CMD=
@@ -21,6 +21,8 @@ _COMPONENTS=
 _OS_COMPONENTS=
 _DE_COMPONENTS=
 _OS_COMPONENTS_FIRST=true
+_OS_BASE=
+_OS_HAS_BASE=false
 
 readonly SELF=${0##*/}
 declare -A COLORS=(
@@ -146,13 +148,13 @@ function main {
   f_get_common_components
 
   for s in $(find ./${_OS}/ -maxdepth 1 -type f); do
-    [[ -e $s ]] || break
+    [[ -e $s ]] || continue
     S_NAME=$(basename $s)
     source "$s"
   done
 
   for s in ./${_OS}/${_DE}/*; do
-    [[ -e $s ]] || break
+    [[ -e $s ]] || continue
     S_NAME=$(basename $s)
     source "$s"
   done
@@ -164,16 +166,24 @@ function main {
 	  f_os_components
   fi
 
-  for COM in "${_COMPONENTS[@]}"; do
-      if type f_${COM}_pre 2>/dev/null; then
+  if $_OS_HAS_BASE; then
+	  for s in ./${_OS_BASE}/*; do
+	    [[ -e $s ]] || continue
+	    S_NAME=$(basename $s)
+	    source "$s"
+	  done
+  fi
+
+  for COM in ${_COMPONENTS[@]}; do
+      if type f_${COM}_pre >/dev/null 2>&1; then
           f_${COM}_pre
       fi
-      if type f_${COM}_main 2>/dev/null; then
+      if type f_${COM}_main >/dev/null 2>&1; then
           f_${COM}_main
       else
           f_out "${COM} isn't supported with this OS/DE combo"
       fi
-      if type f_${COM}_post 2>/dev/null; then
+      if type f_${COM}_post >/dev/null 2>&1; then
           f_${COM}_post
       fi
   done
@@ -186,15 +196,15 @@ function main {
   f_de_pre
 
   for COM in ${_DE_COMPONENTS[@]}; do
-      if type f_${COM}_pre 2>/dev/null; then
+      if type f_${COM}_pre >/dev/null 2>&1; then
           f_${COM}_pre
       fi
-      if type f_${COM}_main 2>/dev/null; then
+      if type f_${COM}_main >/dev/null 2>&1; then
           f_${COM}_main
       else
           f_out "${COM} isn't supported with this OS/DE combo"
       fi
-      if type f_${COM}_post 2>/dev/null; then
+      if type f_${COM}_post >/dev/null 2>&1; then
           f_${COM}_post
       fi
   done
