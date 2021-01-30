@@ -2,6 +2,8 @@
 
 function f_get_os_components() {
     _OS_COMPONENTS=$(dialog --checklist "Which Arch Components?" 400 400 5 \
+	    mirrors "Discover Fatest Mirrors" on \
+	    upgrade "Base System Upgrade" on \
 	    rua "Rua AUR Helper" off \
 	    paru "Paru AUR Helper" on \
 	    yay "Yay AUR Helper" off \

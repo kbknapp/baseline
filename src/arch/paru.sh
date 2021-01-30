@@ -5,4 +5,5 @@ function f_paru_main() {
 
 	$INSTALL_CMD base-devel
 	f_aur_install "paru"
+	_AUR_INSTALL_CMD=paru
 }

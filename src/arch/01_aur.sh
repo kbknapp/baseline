@@ -7,10 +7,14 @@ function f_aur_install() {
 
 	f_out "Installing ${_pkg} from the AUR"
 
-	cd ~/.build
-	rm -rf ~/.build/${_pkg}
-	git clone https://aur.archlinux.org/${_pkg}.git
-	cd ~/.build/${_pkg}
-	makepkg -si
-	cd ~
+	if [[ "$_AUR_INSTALL_CMD" == "NONE" ]]; then
+		cd ~/.build
+		rm -rf ~/.build/${_pkg}
+		git clone https://aur.archlinux.org/${_pkg}.git
+		cd ~/.build/${_pkg}
+		makepkg -si
+		cd ~
+	else
+		$_AUR_INSTALL_CMD "${_pkg}"
+	fi
 }

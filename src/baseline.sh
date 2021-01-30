@@ -23,6 +23,7 @@ _DE_COMPONENTS=
 _OS_COMPONENTS_FIRST=true
 _OS_BASE=
 _OS_HAS_BASE=false
+_AUR_INSTALL_CMD=NONE
 
 readonly SELF=${0##*/}
 declare -A COLORS=(

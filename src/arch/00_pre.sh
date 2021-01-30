@@ -8,11 +8,4 @@ function f_os_pre() {
     f_out "(PRE) Running OS pre-script"
 
     INSTALL_CMD='sudo pacman -S --needed --noconfirm'
-
-    f_out "(PRE) Finding fastest mirrors"
-    sudo reflector --country us --age 12 --protocol https --sort rate --save /etc/pacman.d/mirrorlist
-
-    f_out "Upgrading the system first"
-
-    sudo pacman -Syyu --needed --noconfirm
 }
