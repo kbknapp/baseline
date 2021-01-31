@@ -106,7 +106,7 @@ for arg in "$@"; do
 done
 
 function f_os_components() {
-  for COM in "${_OS_COMPONENTS[@]}"; do
+  for COM in ${_OS_COMPONENTS[@]}; do
       if type f_${COM}_pre >/dev/null 2>&1; then
           f_${COM}_pre
       fi
