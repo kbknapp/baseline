@@ -96,3 +96,7 @@ function f_python_core_components_common() {
 
     readonly _PY_CORE
 }
+
+function f_python_components_main() {
+	f_python_components_common
+}
