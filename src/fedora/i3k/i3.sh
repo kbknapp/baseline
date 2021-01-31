@@ -11,4 +11,7 @@ function f_i3_gaps_post() {
     cp -r ~/.dotfiles/i3/kde/home/.config/rofi ~/.config/
     cp -r ~/.dotfiles/i3/common/home/.xprofile ~/
     cp -r ~/.dotfiles/i3/common/home/.Xresources ~/
+
+    mkdir -p ~/.config/plasma-workspace/env
+    cp -r ~/.dotfiles/i3/kde/home/.config/* ~/.config/
 }
