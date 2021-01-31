@@ -14,6 +14,7 @@ function f_get_common_components() {
        virt "Virtualization" off \
        fonts "Fonts" on \
        zsh "ZSH" on \
+       zsh_config "ZSH Configured" on \
        wireguard "Wireguard" on \
        python_components "Python Components" on \
        vlc "VLC" on \

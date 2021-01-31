@@ -1,6 +1,6 @@
 #!/bin/bash
 
-function f_zsh_common() {
+function f_zsh_config_main() {
     f_check_prog "git"
 
     f_out "Setting up ZSH"
