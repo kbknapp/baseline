@@ -17,3 +17,9 @@ function f_zsh_default_main() {
 
     sudo chsh -s $(which zsh) ${SCRIPT_RUN_USER}
 }
+
+function f_zsh_main() {
+    f_out "Installing and setting up ZSH"
+
+    $INSTALL_CMD zsh zsh-syntax-highlighting fzf
+}
