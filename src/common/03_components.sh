@@ -27,19 +27,19 @@ function f_get_common_components() {
        rust "Rust" on \
        rm_unneeded "Remove Unneeded" on \
        flameshot "Flameshot" on \
-       misc_small "Misc Small Tools" on \
+       misc_small "Misc Small Tools" off \
        nvidia "Nvidia" off \
        amdgpu "AMD GPU" off \
        alacritty "Alacritty" off \
        kitty "KiTTY" on \
-       docker "Docker" on \
+       docker "Docker" off \
        flatpak "Flatpak" on \
        flatpak_apps "FlatPak Apps" on \
-       snapd "Snapd" on \
-       snap_apps "Snap Apps" on \
+       snapd "Snapd" off \
+       snap_apps "Snap Apps" off \
        rust_apps "Compile Rust Apps" on \
-       appimaged "AppImage Integration Daemon" on \
-       standardnotes "StandardNotes" on \
+       appimaged "AppImage Integration Daemon" off \
+       standardnotes "StandardNotes" off \
         --output-fd 1)
     clear
 
