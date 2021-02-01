@@ -3,18 +3,23 @@
 function f_get_common_components() {
     _COMPONENTS=$(dialog --checklist "Which Common Components?" 400 400 37 \
        home_dirs "Common Home Dirs" on \
-       vscode "VSCode Native" on \
+       vscode "VSCode (Native)" on \
        curl "curl" on \
        git "git" on \
        build_tools "Built Tools" on \
        ansible "Ansible" off \
-       fish "Fish Shell" off \
+       fish "Fish Shell" on \
+       fish_default "Make Fish Default Shell" on \
+       fish_config "Fish Configuration" on \
+       fisher "Fish Package Manger " on \
+       fisher_fzf "Fish FZF Support via Fisher" on \
        intel_undervolt "Intel-Undervolt" off \
        steam "Steam" off \
        virt "Virtualization" off \
        fonts "Fonts" on \
-       zsh "ZSH" on \
-       zsh_config "ZSH Configured" on \
+       zsh "ZSH"off \
+       zsh_config "ZSH Configured"off \
+       zsh_default "Make ZSH Default Shell" off \
        wireguard "Wireguard" on \
        python_components "Python Components" on \
        vlc "VLC" on \
