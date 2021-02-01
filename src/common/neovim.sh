@@ -1,6 +1,6 @@
 #!/bin/bash
 
-function f_neovim_appimage() {
+function f_neovim_appimage_main() {
     f_check_prog "curl"
 
     f_out "Installing NeoVIM (nightly) from Appimage"
@@ -9,7 +9,7 @@ function f_neovim_appimage() {
     chmod +x ~/.local/bin/nvim
 }
 
-function f_neovim_common() {
+function f_neovim_config_main() {
     f_check_prog "nvim"
     f_check_prog "curl"
 

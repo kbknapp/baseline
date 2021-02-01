@@ -3,7 +3,7 @@
 function f_i3_pre() {
     f_out "Installing i3 Libraries"
 
-    sudo dnf install -y libX11-devel libXtst-devel pulseaudio-libs-devel \
+    $INSTALL_CMD libX11-devel libXtst-devel pulseaudio-libs-devel \
         jsoncpp-devel alsa-lib-devel wireless-tools-devel libmpdclient-devel \
         libcurl-devel cairo-devel xcb-proto xcb-util-devel xcb-util-wm-devel \
         xcb-util-image-devel libxcb-devel xcb-util-keysyms-devel xcb-util-xrm-devel \
@@ -17,5 +17,5 @@ function f_i3_pre() {
 
     f_out "Installing i3 Required Programs"
 
-    sudo dnf install -y arandr rofi i3status feh
+    $INSTALL_CMD arandr rofi i3status feh
 }
