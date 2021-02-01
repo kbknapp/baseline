@@ -61,7 +61,9 @@ function f_python_components_common() {
             pipx)
                 $PIP_CMD install --user --upgrade $TOOL
                 pipx ensurepath
-                cat 'source $HOME/.dotfiles/zsh/addons/pipx.zshrc-addon' >> $HOME/.zshrc
+		if ! grep -q 'pipx.zshrc-addon' ~/.zshrc ; then
+			cat 'source $HOME/.dotfiles/zsh/addons/pipx.zshrc-addon' >> ~/.zshrc
+		fi
                 ;;
         esac
     done
@@ -74,7 +76,18 @@ function f_python_components_common() {
         case "$TOOL" in
             virtualenvwrapper)
                 $PIP_CMD install --user --upgrade $TOOL
-                cat 'source $HOME/.dotfiles/zsh/addons/virtualenvwrapper.zshrc-addon' >> $HOME/.zshrc
+		if ! grep -q 'virtualenvwrapper.zshrc-addon' ~/.zshrc ; then
+			cat 'source $HOME/.dotfiles/zsh/addons/virtualenvwrapper.zshrc-addon' >> ~/.zshrc
+		fi
+                ;;
+            pyenv)
+		f_check_prog "curl"
+		f_check_prog "git"
+
+		curl https://pyenv.run | bash
+		if ! grep -q 'pyenv.zshrc-addon' ~/.zshrc ; then
+			cat 'source $HOME/.dotfiles/zsh/addons/pyenv.zshrc-addon' >> ~/.zshrc
+		fi
                 ;;
             *)
                 $PIP_CMD install --user --upgrade $TOOL
