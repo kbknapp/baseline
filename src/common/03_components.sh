@@ -28,7 +28,9 @@ function f_get_common_components() {
        ranger "Ranger" on \
        emacs "Emacs" on \
        vim "VIM" on \
-       neovim "NeoVIM" on \
+       neovim "NeoVIM (Native)" off \
+       neovim_appimage "NeoVIM (AppImage)" on \
+       neovim_config "NeoVIM Config" on \
        rust "Rust" on \
        rm_unneeded "Remove Unneeded" on \
        flameshot "Flameshot" on \
