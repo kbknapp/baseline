@@ -163,16 +163,16 @@ function main {
   f_os_pre
   f_get_os_components
 
-  if $_OS_COMPONENTS_FIRST ;then
-	  f_os_components
-  fi
-
   if $_OS_HAS_BASE; then
 	  for s in ./${_OS_BASE}/*; do
 	    [[ -e $s ]] || continue
 	    S_NAME=$(basename $s)
 	    source "$s"
 	  done
+  fi
+
+  if $_OS_COMPONENTS_FIRST ;then
+	  f_os_components
   fi
 
   for COM in ${_COMPONENTS[@]}; do
