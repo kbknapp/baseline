@@ -3,7 +3,7 @@
 function f_i3_pre() {
     f_out "Installing i3 Libraries"
 
-    sudo zypper install -y libX11-devel libXtst-devel jsoncpp-devel libmpdclient-devel \
+    $INSTALL_CMD libX11-devel libXtst-devel jsoncpp-devel libmpdclient-devel \
         libcurl-devel cairo-devel  xcb-util-devel xcb-util-wm-devel xcb-util-image-devel \
         libxcb-devel xcb-util-keysyms-devel xcb-util-devel xcb-util-wm-devel \
         xcb-util-xrm-devel libXrandr-devel startup-notification-devel libev-devel \
@@ -16,5 +16,5 @@ function f_i3_pre() {
 
     f_out "Installing i3 Required Programs"
 
-    sudo zypper install -y arandr rofi i3status feh
+    $INSTALL_CMD arandr rofi i3status feh
 }
