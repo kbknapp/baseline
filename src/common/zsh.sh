@@ -10,5 +10,10 @@ function f_zsh_config_main() {
     cp ~/.dotfiles/zsh/zshrc-linux-p10k ~/.zshrc
     cp ~/.dotfiles/p10k/.p10k.zsh ~/
     git clone --depth=1 https://github.com/romkatv/powerlevel10k.git ${HOME}/.oh-my-zsh/themes/powerlevel10k || true
+}
+
+function f_zsh_default_main() {
+    f_check_prog "chsh"
+
     sudo chsh -s $(which zsh) ${SCRIPT_RUN_USER}
 }
