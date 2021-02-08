@@ -87,5 +87,5 @@ function f_get_de() {
 
     f_validate_de || (clear; f_err_out "${_OS} and ${_DE} is unsupported at this time" && f_exit 1)
 
-    readonly _OS
+    readonly _DE
 }

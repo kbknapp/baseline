@@ -17,8 +17,8 @@ function f_get_common_components() {
        steam "Steam" off \
        virt "Virtualization" off \
        fonts "Fonts" on \
-       zsh "ZSH"off \
-       zsh_config "ZSH Configured"off \
+       zsh "ZSH" off \
+       zsh_config "ZSH Configured" off \
        zsh_default "Make ZSH Default Shell" off \
        wireguard "Wireguard" on \
        python_components "Python Components" on \
