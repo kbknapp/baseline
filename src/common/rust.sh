@@ -1,6 +1,6 @@
 #!/bin/bash
 
-function f_rust_apps_common() {
+function f_rust_apps_main() {
 	# Fedora Deps
 	#   sudo dnf install clang llvm llvm-devel cmake pkg-config openssl-devel
 	# Ubuntu Deps
