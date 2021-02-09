@@ -88,18 +88,22 @@ function f_python_components_common() {
         case "$TOOL" in
             virtualenvwrapper)
                 $PIP_CMD install --user --upgrade $TOOL
-		if ! grep -q 'virtualenvwrapper.zshrc-addon' ~/.zshrc ; then
-			cat 'source $HOME/.dotfiles/zsh/addons/virtualenvwrapper.zshrc-addon' >> ~/.zshrc
-		fi
+                if ! grep -q 'virtualenvwrapper.zshrc-addon' ~/.zshrc ; then
+                  cat 'source $HOME/.dotfiles/zsh/addons/virtualenvwrapper.zshrc-addon' >> ~/.zshrc
+                fi
                 ;;
             pyenv)
-		f_check_prog "curl"
-		f_check_prog "git"
+                f_check_prog "curl"
+                f_check_prog "git"
 
-		curl https://pyenv.run | bash
-		if ! grep -q 'pyenv.zshrc-addon' ~/.zshrc ; then
-			cat 'source $HOME/.dotfiles/zsh/addons/pyenv.zshrc-addon' >> ~/.zshrc
-		fi
+                curl https://pyenv.run | bash
+                if ! grep -q 'pyenv.zshrc-addon' ~/.zshrc ; then
+                  cat 'source $HOME/.dotfiles/zsh/addons/pyenv.zshrc-addon' >> ~/.zshrc
+                fi
+                ;;
+            pyenv)
+                f_check_prog "git"
+                curl -LSs https://pyenv.run | bash
                 ;;
             *)
                 $PIP_CMD install --user --upgrade $TOOL
