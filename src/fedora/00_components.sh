@@ -6,6 +6,8 @@ function f_get_os_components() {
        dnf_config "DNF Settings" on \
        upgrade "Upgrade the base system" on \
        rpm_fusion "RPM Fusion" on \
+       virtualbox "VirtualBox" on \
+       vagrant "Vagrant" on \
        podman "Podman" on \
         --output-fd 1)
     clear
