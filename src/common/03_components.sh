@@ -38,7 +38,8 @@ function f_get_common_components() {
        nvidia "Nvidia" off \
        amdgpu "AMD GPU" off \
        alacritty "Alacritty" off \
-       kitty "KiTTY" on \
+       alacritty_ligatures "Alacritty_ligatures" on \
+       kitty "KiTTY" off \
        docker "Docker" off \
        flatpak "Flatpak" on \
        flatpak_apps "FlatPak Apps" on \
