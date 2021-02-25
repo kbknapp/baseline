@@ -35,6 +35,7 @@ function f_check_programs() {
   f_verb_out "(PRE) Checking for required programs"
 
   f_check_prog "dialog"
+  f_check_prog "hostname"
 }
 
 function f_dbg_out() {

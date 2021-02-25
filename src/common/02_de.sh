@@ -27,6 +27,9 @@ function f_validate_de() {
                 i3k)
                     return 0
                     ;;
+                wsl)
+                    return 0
+                    ;;
                 *)
                     return 1
                     ;;
@@ -77,6 +80,8 @@ function f_validate_de() {
 
 function f_get_de() {
     _DE=$(dialog --radiolist "Which DE?" 200 200 6 \
+        headless Headless off \
+        wsl WSL off \
         gnome Gnome off \
         kde KDE off \
         xfce XFCE off \
