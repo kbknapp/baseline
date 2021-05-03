@@ -10,7 +10,6 @@ function f_neovim_appimage_main() {
 }
 
 function f_neovim_config_main() {
-    f_check_prog "nvim"
     f_check_prog "curl"
 
     f_out "Setting up NeoVIM"
