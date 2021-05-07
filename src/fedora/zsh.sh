@@ -1,7 +1,7 @@
 #!/bin/bash
 
 function f_zsh_default_pre() {
-    f_check_prog "Installing chsh"
+    f_out "Installing chsh"
 
     $INSTALL_CMD util-linux-user
 }
