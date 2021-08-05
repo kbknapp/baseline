@@ -7,9 +7,6 @@ function f_snapd_main() {
     sudo zypper --gpg-auto-import-keys refresh
     sudo zypper dup --from snappy
     $INSTALL_CMD snapd
-    sudo systmectl enable snapd
-    sudo systemctl enable snapd
-    sudo systemctl start snapd
-    sudo systemctl enable snapd.apparmor
-    sudo systemctl start snapd.apparmor
+    sudo systemctl enable --now snapd
+    sudo systemctl enable --now snapd.apparmor
 }
