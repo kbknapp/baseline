@@ -9,6 +9,6 @@ function f_media_main {
     gstreamer-plugins-bad-orig-addon gstreamer-plugins-base  gstreamer-plugins-good \
     gstreamer-plugins-good-extra gstreamer-plugins-libav gstreamer-plugins-ugly \
     gstreamer-plugins-ugly-orig-addon vlc smplayer x264 x265 vlc-codecs \
-    vlc-codec-gstreamer ogmtools libavcodec58 gstreamer-plugins-vaapi
+    vlc-codec-gstreamer ogmtools libavcodec58_134 gstreamer-plugins-vaapi
 
 }
