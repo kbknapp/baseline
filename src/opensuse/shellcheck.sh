@@ -1,7 +1,7 @@
 #!/bin/bash
 
 function f_shellcheck_main() {
-  f_out "ShellCheck not suported in OpenSUSE yet"
+  f_out "Installing ShellCheck"
 
-  # sudo zypper install -y shellcheck
+  $INSTALL_CMD ShellCheck
 }
