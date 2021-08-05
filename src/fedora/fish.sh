@@ -3,7 +3,7 @@
 function f_fish_main() {
     f_out "Installing and setting up Fish"
 
-    $INSTALL_CMD fish fzf
+    $INSTALL_CMD fish
 }
 
 

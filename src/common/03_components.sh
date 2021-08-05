@@ -21,6 +21,7 @@ function f_get_common_components() {
        zsh_config "ZSH Configured" off \
        zsh_default "Make ZSH Default Shell" off \
        wireguard "Wireguard" on \
+       fzf "Fuzzy Finder" on \
        python_components "Python Components" on \
        vlc "VLC" on \
        nmap "Nmap" on \
