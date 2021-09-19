@@ -3,6 +3,8 @@
 function f_i3_pre() {
     f_out "Installing i3 Libraries"
 
+    #xcb-proto 
+    #desktop-file-utils 
     $INSTALL_CMD libX11-devel libXtst-devel pulseaudio-libs-devel \
         jsoncpp-devel alsa-lib-devel wireless-tools-devel libmpdclient-devel \
         libcurl-devel cairo-devel xcb-proto xcb-util-devel xcb-util-wm-devel \
