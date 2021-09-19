@@ -37,21 +37,26 @@ function f_rust_apps_main() {
 	  "cargo-about"      "more info about deps" on \
 	  "cargo-audit"      "Security Notifications" on \
 	  "cargo-bloat"      "" on \
+    "cargo-bundle-licenses"    "Bundle licenses in one file" on \
 	  "cargo-cache"      "" on \
 	  "cargo-call-stack" "Generate Call Graphs" on \
 	  "cargo-count"      "Count lines of code" off \
 	  "cargo-crev"       "Dependency Audit and Review" on \
 	  "cargo-deny"       "Dep graph lints" on \
 	  "cargo-deps"       "Generate dependency graphs" off \
+	  "cargo-diet"       "Minimize Package size with Cargo.toml include/excludes" off \
 	  "cargo-edit"       "Edit dependencies from the CLI" on \
 	  "cargo-expand"     "Expand macros" on \
 	  "cargo-geiger"     "Unsafe statistics about deps" on \
 	  "cargo-graph"      "Generate dependency graphs" off \
 	  "cargo-license"    "" on \
 	  "cargo-lichking"   "Display license info for deps" on \
+	  "cargo-llvm-lines" "Lines by LLVIM-IR" on \
+	  "cargo-llvm-cov"   "Code Coverage by LLVIM-IR" on \
 	  "cargo-modules"    "" off \
 	  "cargo-outdated"   "Display out of date dependencies" on \
 	  "cargo-sweep"      "Clean out old build artifacts" off \
+	  "cargo-tarpaulin"  "Code coverage" on \
 	  "cargo-thanks"     "Star your deps" off \
 	  "cargo-tree"       "" on \
 	  "cargo-udeps"      "Find unused deps" on \
@@ -61,8 +66,10 @@ function f_rust_apps_main() {
 
     _RUST_DEV_TOOLS=$(dialog --checklist "Which Rust Dev Tools?" 400 400 15 \
 	  "amber"      "Code Search and Replace" on \
+	  "bpf-linker" "Linker for eBPF" on \
 	  "clog-cli"   "Change Log" on \
 	  "git-absorb" "Auto fixup and rebase in git" on \
+	  "git-delta"  "A better diff" on \
 	  "gitui"      "A TUI for git" on \
 	  "just"       "modern make" on \
 	  "racer"      "Rust completion support" on \
@@ -119,6 +126,8 @@ function f_rust_apps_main() {
 	  "mdcat"          "cat for markdown" on \
 	  "miniserve"      "Mini HTTP server" on \
 	  "mprober"        "Kernel prob utility" on \
+    "navi"           "Shell cheat sheets" on \
+	  "nu"             "A nu shell with Powershell Inspiration" on \
 	  "pastel"         "Get color info in your terminal" on \
 	  "ruplacer"       "find and replace" on \
 	  "shellharden"    "Shell Script Lint and Fix" on \
@@ -133,6 +142,7 @@ function f_rust_apps_main() {
 	  "websocket"      "Build websockets" on \
 	  "xcompress"      "Compression utility" on \
 	  "zellij"         "tmux like terminal manager" on \
+	  "zoxide"         "Auto CD" on \
         --output-fd 1)
     clear
 
@@ -151,7 +161,6 @@ function f_rust_apps_main() {
     clear
 
     _RUST_TOOLS_GIT=$(dialog --checklist "Which Rust from git repos?" 400 400 25 \
-	  "denisidoro/navi"    "command search" on \
 	  "getzola/zola"       "static site generator" on \
 	  "tonarino/innernet"  "Wireguard manager" on \
         --output-fd 1)
