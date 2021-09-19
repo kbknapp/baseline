@@ -18,6 +18,18 @@ function f_git_common() {
 	rebase = true
 [core]
 	excludesfile = /home/kevin/.gitignore
+[pager]
+ diff = delta
+ log = delta
+ reflog = delta
+ show = delta
+[delta]
+ plus-style = "syntax #012800"
+ minus-style = "syntax #340001"
+ syntax-theme = Monokai Extended
+ navigate = true
+[interactive]
+ diffFilter = delta --color-only
 EOF
 
     cat <<EOF > ~/.gitignore
@@ -25,6 +37,26 @@ EOF
 **/.idea/
 EOF
 }
+
+function f_git_delta() {
+    f_out "Setting up git-delta"
+
+    cat <<EOF >> ~/.gitconfig
+[pager]
+ diff = delta
+ log = delta
+ reflog = delta
+ show = delta
+[delta]
+ plus-style = "syntax #012800"
+ minus-style = "syntax #340001"
+ syntax-theme = Monokai Extended
+ navigate = true
+[interactive]
+ diffFilter = delta --color-only
+EOF
+}
+
 
 function f_git_main() {
     f_out "Installing git and git related tools"
