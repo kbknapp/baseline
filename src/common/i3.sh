@@ -16,3 +16,15 @@ function f_i3_gaps_main() {
     ninja
     sudo ninja install
 }
+
+function f_i3_gaps_toast_main() {
+    f_check_prog "toast"
+    f_check_prog "docker"
+
+    f_out "Compiling and Installing i3-gaps"
+
+    cp ~/Projects/baseline/src/common/i3.toast.yml ~/.build/
+    cd ~/.build/
+    toast -f i3.toast.yml
+    sudo tar xzpf i3_target_root.tgz -C /
+}

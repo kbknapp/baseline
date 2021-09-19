@@ -16,3 +16,14 @@ function f_picom_main() {
     sudo ninja -C build install
 }
 
+function f_picom_toast_main() {
+    f_check_prog "toast"
+    f_check_prog "docker"
+
+    f_out "Compiling and Installing picom"
+
+    cp ~/Projects/baseline/src/common/picom.toast.yml ~/.build/
+    cd ~/.build/
+    toast -f picom.toast.yml
+    sudo tar xzpf picom_target_root.tgz -C /
+}
