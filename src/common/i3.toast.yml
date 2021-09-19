@@ -1,0 +1,83 @@
+image: fedora:34
+tasks:
+  setup_env:
+    environment:
+      PKG_NAME: 'i3'
+      TGT: target_root
+
+  create_target_root:
+    command: |
+      mkdir -p target_root
+
+  update:
+    command: dnf upgrade -y
+
+  install_build_tools:
+    dependencies:
+      - update
+    command: |
+      dnf install -y git gcc automake meson perl-ExtUtils-MakeMaker
+
+  install_build_deps:
+    dependencies:
+      - update
+    command: |
+        dnf install -y \
+          libXinerama-devel \
+          libXrandr-devel \
+          libev-devel \
+          libxcb-devel \
+          libxkbcommon-devel \
+          libxkbcommon-x11-devel \
+          pango-devel \
+          pcre-devel \
+          startup-notification-devel \
+          xcb-util-cursor-devel \
+          xcb-util-devel \
+          xcb-util-keysyms-devel \
+          xcb-util-wm-devel \
+          xcb-util-xrm-devel \
+          yajl-devel
+
+  clone_source:
+    dependencies:
+      - install_build_tools
+    command: |
+      git clone --recursive https://github.com/Airblader/i3
+
+  configure:
+    dependencies:
+      - setup_env
+      - clone_source
+      - install_build_tools
+      - install_build_deps
+    command: |
+      cd ${PKG_NAME}/
+      mkdir -p build/
+      cd build/
+      meson setup --sysconfdir /etc --prefix /usr --optimization 3 --buildtype release ..
+
+  build:
+    dependencies:
+      - configure
+      - install_build_deps
+    command: |
+      cd ${PKG_NAME}/
+      ninja -C build
+
+  faux_install:
+    dependencies:
+      - build
+      - create_target_root
+    command: |
+      cd ${PKG_NAME}/
+      DESTDIR=/scratch/target_root ninja -C build install
+
+  tar_tgt_root:
+    output_paths:
+      - i3_target_root.tar.gz
+    dependencies:
+      - faux_install
+    command: |
+      cd target_root/
+      tar cpzf ../${PKG_NAME}_target_root.tar.gz ./*

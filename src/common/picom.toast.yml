@@ -1,0 +1,85 @@
+image: fedora:34
+tasks:
+  setup_env:
+    environment:
+      PKG_NAME: 'picom'
+      TGT: target_root
+
+  create_target_root:
+    command: |
+      mkdir -p target_root
+
+  update:
+    command: dnf upgrade -y
+
+  install_build_tools:
+    dependencies:
+      - update
+    command: |
+      dnf install -y git gcc meson
+
+  install_build_deps:
+    dependencies:
+      - update
+    command: |
+        dnf install -y \
+          dbus-devel \
+          libX11-devel \
+          libX11-xcb \
+          libXext-devel \
+          libconfig-devel \
+          libdrm-devel \
+          libev-devel \
+          libxcb-devel \
+          mesa-libGL-devel \
+          pcre-devel \
+          pixman-devel \
+          uthash-devel \
+          xcb-util-image-devel \
+          xcb-util-renderutil-devel \
+          xorg-x11-proto-devel
+
+  clone_source:
+    dependencies:
+      - install_build_tools
+    command: |
+      git clone --recursive https://github.com/yshui/picom
+      cd picom
+      git submodule update --init --recursive
+
+  configure:
+    dependencies:
+      - setup_env
+      - clone_source
+      - install_build_tools
+      - install_build_deps
+    command: |
+      cd ${PKG_NAME}/
+      mkdir -p build/
+      cd build/
+      meson setup --sysconfdir /etc --prefix /usr --optimization 3 --buildtype release ..
+
+  build:
+    dependencies:
+      - configure
+      - install_build_deps
+    command: |
+      cd ${PKG_NAME}/
+      ninja -C build
+
+  faux_install:
+    dependencies:
+      - build
+      - create_target_root
+    command: |
+      cd ${PKG_NAME}/
+      DESTDIR=/scratch/target_root ninja -C build install
+
+  tar_tgt_root:
+    output_paths:
+      - picom_target_root.tar.gz
+    dependencies:
+      - faux_install
+    command: |
+      cd target_root/
+      tar cpzf ../${PKG_NAME}_target_root.tar.gz ./*
