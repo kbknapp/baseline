@@ -34,6 +34,8 @@ function f_flatpak_apps_main() {
        io.github.arunsivaramanneo.GPUViewer "GPU Viewer" off \
        org.gnome.Fractal "Fractal" off \
        net.xmind.ZEN "XMind" on \
+       io.github.arunsivaramanneo.GPUViewer "GPU-Viewer" off \
+       org.onlyoffice.desktopeditors "ONLYOFFICE" on \
         --output-fd 1)
     clear
 
