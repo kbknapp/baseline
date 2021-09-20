@@ -1,23 +1,66 @@
 #!/bin/bash
 
 function f_i3_pre() {
-    f_out "Installing i3 Libraries"
+    f_out "Installing i3 Libraries and Utils"
 
-    #xcb-proto 
-    #desktop-file-utils 
-    $INSTALL_CMD libX11-devel libXtst-devel pulseaudio-libs-devel \
-        jsoncpp-devel alsa-lib-devel wireless-tools-devel libmpdclient-devel \
-        libcurl-devel cairo-devel xcb-proto xcb-util-devel xcb-util-wm-devel \
-        xcb-util-image-devel libxcb-devel xcb-util-keysyms-devel xcb-util-xrm-devel \
-	      yajl-devel startup-notification-devel libev-devel xcb-util-cursor-devel \
-        libXinerama-devel libxkbcommon-devel libxkbcommon-x11-devel pcre-devel \
-        pango-devel uthash-devel libX11-devel libXcomposite-devel libXfixes-devel \
-        libXdamage-devel libXrender-devel libXext-devel libXrandr-devel \
-        libconfig-devel libdrm-devel mesa-libGL-devel dbus-devel asciidoc \
-	      desktop-file-utils libxdg-basedir-devel fontconfig-devel freetype-devel meson \
-        perl-ExtUtils-MakeMaker
+    $INSTALL_CMD \
+	      desktop-file-utils \
+        xcb-proto
 
     f_out "Installing i3 Required Programs"
 
     $INSTALL_CMD arandr rofi i3status feh
+}
+
+function f_i3_gaps_pre() {
+  f_out "Installing i3-gaps build tools"
+
+  $INSTALL_CMD asciidoc \
+    meson \
+    perl-ExtUtils-MakeMaker
+
+
+  f_out "Installing i3-gaps build deps"
+
+  $INSTALL_CMD  \
+     yajl-devel \
+     alsa-lib-devel \
+     cairo-devel \
+     dbus-devel \
+     fontconfig-devel \
+     freetype-devel \
+     jsoncpp-devel \
+     libX11-devel \
+     libXcomposite-devel \
+     libXdamage-devel \
+     libXext-devel \
+     libXfixes-devel \
+     libXinerama-devel \
+     libXrandr-devel \
+     libXrender-devel \
+     libconfig-devel \
+     libcurl-devel \
+     libdrm-devel \
+     libev-devel \
+     libmpdclient-devel \
+     libxcb-devel \
+     libxdg-basedir-devel \
+     libxkbcommon-devel \
+     libxkbcommon-x11-devel \
+     mesa-libGL-devel \
+     pango-devel \
+     pcre-devel \
+     startup-notification-devel \
+     uthash-devel \
+     wireless-tools-devel \
+     xcb-util-cursor-devel \
+     xcb-util-devel \
+     xcb-util-image-devel \
+     xcb-util-keysyms-devel \
+     xcb-util-wm-devel \
+     xcb-util-xrm-devel \
+     libXtst-devel \
+     pulseaudio-libs-devel \
+     libX11-devel
+
 }
