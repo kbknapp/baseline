@@ -1,7 +1,7 @@
 #!/bin/bash
 
-function f_rm_unneeded_main() {
-  f_out "Removing unneeded applications"
+function f_lazygit_main() {
+  f_out "Installing lazygit"
 
   cd $(mktemp -d)
   LAZYGIT_VERSION=$(curl -s "https://api.github.com/repos/jesseduffield/lazygit/releases/latest" | grep -Po '"tag_name": "v\K[^"]*')
