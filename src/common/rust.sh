@@ -75,7 +75,7 @@ function f_rust_apps_main() {
 	  "racer"      "Rust completion support" on \
 	  "rusty-tags" "tags support" on \
 	  "tokei"      "Fast Line Count" on \
-	  "watchexec"  "Run command on file change" on \
+	  "watchexec-cli"  "Run command on file change" on \
         --output-fd 1)
     clear
 
@@ -116,6 +116,7 @@ function f_rust_apps_main() {
 	  "bingrep"        "" on \
 	  "broot"          "interactive tree" on \
 	  "dupe-krill"     "file deduplicator" on \
+	  "faketty"        "exec command in pty even if redirecting output" on \
 	  "fastmod"        "find and replace" on \
 	  "genact"         "activity generator" off \
 	  "gptman"         "" on \
@@ -125,7 +126,7 @@ function f_rust_apps_main() {
 	  "mdbook"         "write books in MD" on \
 	  "mdcat"          "cat for markdown" on \
 	  "miniserve"      "Mini HTTP server" on \
-	  "mprober"        "Kernel prob utility" on \
+	  "mprober"        "Kernel prob utility" off \
     "navi"           "Shell cheat sheets" on \
 	  "nu"             "A nu shell with Powershell Inspiration" on \
 	  "pastel"         "Get color info in your terminal" on \
@@ -134,12 +135,13 @@ function f_rust_apps_main() {
 	  "skim"           "fzf clone" on \
 	  "starship"       "shell prompt" off \
 	  "strace-analyzer" "" on \
+	  "systemfd"       "pass sockets between processes" on \
 	  "tealdeer"       "tldr" on \
 	  "toast"          "Build using Docker" on \
 	  "topgrade"       "upgrade everything" on \
 	  "ttdl"           "todo list" on \
 	  "wasm-pack"      "" on \
-	  "websocket"      "Build websockets" on \
+	  "websocat"       "Build websockets" on \
 	  "xcompress"      "Compression utility" on \
 	  "zellij"         "tmux like terminal manager" on \
 	  "zoxide"         "Auto CD" on \
